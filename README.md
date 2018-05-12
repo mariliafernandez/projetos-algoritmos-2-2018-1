@@ -1,7 +1,7 @@
 # projetos-algoritmos-2-2018-1
 Repositório para armazenar os projetos feito por alunos da disciplina de Algoritmos 2 (2018/1)
 
-Os projetos são:
+## Projetos
 <ul>
   <li>Agenda</li>
   <li>Batalha Naval</li>
