@@ -407,27 +407,6 @@ void liberar(int qtdNavios) {
   }
 }
 
-// Contagem de tempo em segundos, retorna 1 quando acaba de contar o tempo.
-int timeout ( int start, int interval ) {
-    int time_spent, time_spend_sec;
-    clock_t end;
-
-    end=clock();
-
-    time_spent = ((int)end - start); //milisegundos
-    time_spend_sec = ((time_spent)/(CLOCKS_PER_SEC));
-
-    printf("CLOCKS_PER_SEC %ld\n", CLOCKS_PER_SEC);
-    printf("start %d\n", start);
-    printf("end %d\n", end);
-    printf("time_spent %d\n", time_spend_sec);
-    if (time_spend_sec < interval) {
-      return 0;
-    }
-    else
-      return  1;
-}
-
 // Verifica se o jogador ganhou o jogo, retorna 1 se ganhou e 0 se não ganhou.
 int ganhou(int jogador_id) {
   if(jogador[jogador_id].naviosAfundados == qtdNavios)
@@ -642,6 +621,17 @@ void instrucoes() {
     menu();
 }
 
+void creditos() {
+  clear();
+  printBatalhaNaval();
+  printf("\n\tDesenvolvido por:\n\t\tLarissa Martins\n\t\tMarília Fernandez\n\n\tProjeto final da disciplina de Algoritmos 2\n\tdo curso de Engenharia de Computação\n\n\tJunho, 2018\n\n\n\n");
+
+  printf("\t[0] Voltar ao menu\n\n\t");
+
+  while(getchar() != '0') {}
+    menu();
+}
+
 // Imprime o menu do jogo na tela e retorna a opção escolhida
 void menu() {
   int jogadores;
@@ -655,7 +645,8 @@ void menu() {
   printf("\n\t3 - Fácil (50 tentativas)");
   printf("\n\t4 - Médio (30 tentativas)");
   printf("\n\t5 - Difícil (20 tentativas)");
-  printf("\n\t6 - Sair\n\n\t");
+  printf("\n\t6 - Créditos");
+  printf("\n\t7 - Sair\n\n\t");
 
   do {
     scanf("%d", &opcao);
@@ -683,6 +674,9 @@ void menu() {
           playTentativas(20);
           break;
       case 6:
+          creditos();
+          break;
+      case 7:
           exit(0);
           break;
         default:
